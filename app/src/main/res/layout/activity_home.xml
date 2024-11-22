@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content">
+
+    <ScrollView
+         android:layout_height="fill_parent"
+         android:layout_width="fill_parent">
+
+        <LinearLayout
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_height="match_parent"
+             android:layout_width="match_parent"
+             android:orientation="vertical">
+
+            <LinearLayout
+                 android:layout_height="fill_parent"
+                 android:layout_width="match_parent"
+                 android:gravity="top|center"
+                 android:padding="5dp"
+                 android:orientation="vertical"
+                 android:id="@+id/activity_mainLinearLayout">
+
+                <androidx.cardview.widget.CardView
+                     android:layout_height="wrap_content"
+                     android:layout_width="match_parent"
+                     android:background="@drawable/green_round"
+                     android:orientation="vertical"
+                     android:paddingLeft="2dp"
+                     android:layout_marginRight="5dp"
+                     android:layout_marginLeft="5dp"
+                     android:layout_marginTop="5dp"
+                     app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                         android:layout_height="wrap_content"
+                         android:layout_width="match_parent"
+                         android:background="@drawable/green_round"
+                         android:padding="5dp"
+                         android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                             android:layout_height="20dp"
+                             android:layout_width="match_parent"
+                             android:gravity="center"
+                             android:orientation="horizontal"
+                             android:layout_marginLeft="3dp"
+                             android:layout_marginRight="3dp"
+                             android:layout_marginTop="3dp"
+                             app:cardCornerRadius="8dp">
+
+                            <LinearLayout
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:gravity="center_vertical"
+                                 android:orientation="horizontal">
+
+                                <LinearLayout
+                                     android:layout_height="wrap_content"
+                                     android:layout_width="match_parent"
+                                     android:gravity="center_vertical"
+                                     android:orientation="horizontal"
+                                     android:layout_weight="1.0">
+
+                                    <TextView
+                                         android:layout_height="wrap_content"
+                                         android:layout_width="wrap_content"
+                                         android:textAppearance="?android:attr/textAppearanceSmall"
+                                         android:textSize="14sp"
+                                         android:fontFamily="serif"
+                                         android:layout_marginLeft="5dp"
+                                         android:text="Config Version :"
+                                         android:textStyle="bold" />
+
+                                    <TextView
+                                         android:layout_height="wrap_content"
+                                         android:layout_width="wrap_content"
+                                         android:textAppearance="?android:attr/textAppearanceSmall"
+                                         android:textSize="14sp"
+                                         android:paddingLeft="4dp"
+                                         android:text="Text"
+                                         android:id="@+id/config_v" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                     android:layout_height="wrap_content"
+                                     android:layout_width="match_parent"
+                                     android:gravity="center_vertical"
+                                     android:orientation="horizontal"
+                                     android:layout_weight="1.0">
+
+                                    <TextView
+                                         android:layout_height="wrap_content"
+                                         android:layout_width="wrap_content"
+                                         android:textAppearance="?android:attr/textAppearanceSmall"
+                                         android:textSize="14sp"
+                                         android:fontFamily="serif"
+                                         android:layout_marginLeft="5dp"
+                                         android:text="Status :"
+                                         android:textStyle="bold" />
+
+                                    <TextView
+                                         android:layout_height="wrap_content"
+                                         android:layout_width="wrap_content"
+                                         android:textAppearance="?android:attr/textAppearanceSmall"
+                                         android:textSize="14sp"
+                                         android:paddingLeft="4dp"
+                                         android:textColor="#ff0808"
+                                         android:text="Disconnected"
+                                         android:id="@+id/connect_status" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <LinearLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:gravity="center_vertical"
+                             android:orientation="horizontal"
+                             android:layout_marginTop="20dp">
+
+                            <TextView
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="wrap_content"
+                                 android:visibility="gone"
+                                 android:textAppearance="?android:attr/textAppearanceSmall"
+                                 android:textSize="14sp"
+                                 android:layout_marginLeft="5dp"
+                                 android:id="@+id/serverCount"
+                                 android:text="Server" />
+
+                            <LinearLayout
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:gravity="right|center"
+                                 android:orientation="horizontal">
+
+                                <RelativeLayout
+                                     android:layout_height="wrap_content"
+                                     android:layout_width="wrap_content"
+                                     android:gravity="center"
+                                     android:padding="3dp"
+                                     android:id="@+id/rl">
+
+                                    <Switch
+                                         android:layout_height="wrap_content"
+                                         android:layout_width="wrap_content"
+                                         android:visibility="gone"
+                                         android:textAppearance="?android:attr/textAppearanceSmall"
+                                         android:textSize="14sp"
+                                         android:textColor="@color/green"
+                                         android:text="Auto Reconnect"
+                                         android:id="@+id/reconnect" />
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                             android:layout_height="55dp"
+                             android:layout_width="match_parent"
+                             android:background="@drawable/green_round"
+                             android:layout_marginTop="5dp"
+                             android:id="@+id/serverSpinner" />
+
+                        <androidx.cardview.widget.CardView
+                             android:layout_height="20dp"
+                             android:layout_width="match_parent"
+                             android:gravity="center"
+                             android:orientation="horizontal"
+                             android:layout_marginLeft="3dp"
+                             android:layout_marginRight="3dp"
+                             android:layout_marginTop="10dp"
+                             app:cardCornerRadius="8dp">
+
+                            <LinearLayout
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:gravity="center"
+                                 android:orientation="horizontal">
+
+                                <ImageView
+                                     android:layout_height="18dp"
+                                     android:layout_width="18dp"
+                                     android:src="@drawable/ic_arrow_up" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                     android:layout_height="wrap_content"
+                                     android:layout_width="wrap_content"
+                                     android:textAppearance="?android:attr/textAppearanceSmall"
+                                     android:layout_marginLeft="3dp"
+                                     android:textColor="#1f5a7c"
+                                     android:text="0 B"
+                                     android:id="@+id/bytes_out" />
+
+                                <ImageView
+                                     android:layout_height="18dp"
+                                     android:layout_width="18dp"
+                                     android:src="@drawable/ic_arrow_down"
+                                     android:layout_marginLeft="10dp" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                     android:layout_height="wrap_content"
+                                     android:layout_width="wrap_content"
+                                     android:textAppearance="?android:attr/textAppearanceSmall"
+                                     android:layout_marginLeft="3dp"
+                                     android:textColor="#1f5a7c"
+                                     android:text="0 B"
+                                     android:id="@+id/bytes_in" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <LinearLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:gravity="center_vertical"
+                             android:orientation="horizontal"
+                             android:layout_marginTop="20dp">
+
+                            <TextView
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="wrap_content"
+                                 android:visibility="gone"
+                                 android:textAppearance="?android:attr/textAppearanceSmall"
+                                 android:padding="10dp"
+                                 android:textSize="14sp"
+                                 android:layout_marginLeft="5dp"
+                                 android:id="@+id/payCount"
+                                 android:text="Tweak" />
+
+                            <LinearLayout
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:gravity="right|center"
+                                 android:orientation="horizontal">
+
+                                <RelativeLayout
+                                     android:layout_height="wrap_content"
+                                     android:layout_width="wrap_content"
+                                     android:gravity="center"
+                                     android:padding="3dp"
+                                     android:id="@+id/add_c">
+
+                                    <Switch
+                                         android:layout_height="wrap_content"
+                                         android:layout_width="wrap_content"
+                                         android:textAppearance="?android:attr/textAppearanceSmall"
+                                         android:textSize="14sp"
+                                         android:fontFamily="serif"
+                                         android:textStyle="bold"
+                                         android:text="Custom Setup"
+                                         android:id="@+id/ckSetup" />
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:background="@drawable/green_round"
+                             android:layout_marginTop="5dp"
+                             android:id="@+id/payloadSpinner" />
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:background="@drawable/green_round"
+                             android:layout_marginTop="5dp"
+                             android:id="@+id/setupSpinner" />
+
+                        <LinearLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:background="@drawable/green_round"
+                             android:orientation="vertical"
+                             android:id="@+id/messageLayout">
+
+                            <TextView
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="wrap_content"
+                                 android:textAppearance="?android:attr/textAppearanceSmall"
+                                 android:fontFamily="serif"
+                                 android:textColor="#FF000000"
+                                 android:textStyle="bold"
+                                 android:text="Config Message" />
+
+                            <TextView
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="wrap_content"
+                                 android:autoLink="web"
+                                 android:textAppearance="?android:attr/textAppearanceSmall"
+                                 android:textColorLink="#FF006BFF"
+                                 android:fontFamily="serif"
+                                 android:textColor="#1f5a7c"
+                                 android:layout_marginTop="10dp"
+                                 android:id="@+id/tvMessage" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:layout_marginTop="5dp"
+                             android:id="@+id/payloadLayout">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:hint="Payload"
+                                 android:textSize="15sp"
+                                 android:maxLines="5"
+                                 android:ems="10"
+                                 android:id="@+id/edCustomPayload" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:id="@+id/sniLayout">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:hint="SNI (Server Name Indicator)"
+                                 android:textSize="15sp"
+                                 android:ems="10"
+                                 android:id="@+id/edCustomSSL" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:layout_marginTop="5dp"
+                             android:id="@+id/sslpayloadLayout">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:hint="Payload"
+                                 android:textSize="15sp"
+                                 android:maxLines="5"
+                                 android:ems="10"
+                                 android:id="@+id/sslCustomPayload" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:id="@+id/snipayloadLayout">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:hint="SNI (Server Name Indicator)"
+                                 android:textSize="15sp"
+                                 android:ems="10"
+                                 android:id="@+id/sniCustomSSL" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:layout_marginTop="5dp"
+                             android:id="@+id/bugLayout">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:hint="Bughost (Websocket)"
+                                 android:textSize="15sp"
+                                 android:maxLines="5"
+                                 android:ems="10"
+                                 android:id="@+id/webBug" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:layout_marginTop="5dp"
+                             android:id="@+id/UserLayout">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:hint="Username (Websocket)"
+                                 android:textSize="15sp"
+                                 android:maxLines="5"
+                                 android:ems="10"
+                                 android:inputType="text"
+                                 android:id="@+id/webUser" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:id="@+id/PassLayout">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:hint="Password (Websocket)"
+                                 android:textSize="15sp"
+                                 android:ems="10"
+                                 android:inputType="text"
+                                 android:id="@+id/webPass" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:layout_marginTop="5dp"
+                             android:id="@+id/pubLayout">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:hint="Public Key"
+                                 android:textSize="15sp"
+                                 android:maxLines="5"
+                                 android:ems="10"
+                                 android:id="@+id/textPub" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:id="@+id/svLayout">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:hint="DNS (Server Name)"
+                                 android:textSize="15sp"
+                                 android:ems="10"
+                                 android:id="@+id/textServer" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:layout_marginTop="5dp"
+                             android:id="@+id/DnsLayout">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:hint="Dns (8.8.8.8)"
+                                 android:textSize="15sp"
+                                 android:maxLines="5"
+                                 android:ems="10"
+                                 android:id="@+id/textDns" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:layout_marginTop="5dp"
+                             android:id="@+id/UserDns">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:hint="Username (SlowDns)"
+                                 android:textSize="15sp"
+                                 android:maxLines="5"
+                                 android:ems="10"
+                                 android:inputType="text"
+                                 android:id="@+id/textUser" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:id="@+id/PassDns">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:hint="Password (SlowDns)"
+                                 android:textSize="15sp"
+                                 android:ems="10"
+                                 android:inputType="text"
+                                 android:id="@+id/textPass" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                        
+                       <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:id="@+id/v2lay">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="fill_parent"
+                                 android:hint="V2ray Json"
+                                 android:textSize="15.0sp"
+                                 android:ems="10"
+                                 android:id="@+id/v2link" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:id="@+id/udpServerlay">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="fill_parent"
+                                 android:hint="UDP Server IP"
+                                 android:textSize="15.0sp"
+                                 android:ems="10"
+                                 android:id="@+id/udpIp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:id="@+id/udpObfslay">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="fill_parent"
+                                 android:hint="UDP User(Obfs)"
+                                 android:textSize="15.0sp"
+                                 android:ems="10"
+                                 android:id="@+id/udpUser" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:id="@+id/udpAuthlay">
+
+                            <EditText
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="fill_parent"
+                                 android:hint="UDP Pass(Auth)"
+                                 android:textSize="15.0sp"
+                                 android:ems="10"
+                                 android:id="@+id/udpPass" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <Button
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:visibility="gone"
+                             android:background="@drawable/button_rounded"
+                             android:backgroundTint="?colorPrimary"
+                             android:textColor="#ffffff"
+                             android:layout_marginTop="10dp"
+                             android:text="STOP"
+                             android:id="@+id/stoppertunnel" />
+
+                        <Button
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:background="@drawable/button_rounded"
+                             android:backgroundTint="?colorPrimary"
+                             android:textColor="#ffffff"
+                             android:layout_marginTop="10dp"
+                             android:text="START"
+                             android:id="@+id/activity_starterButtonMain" />
+
+                        <LinearLayout
+                             android:layout_height="wrap_content"
+                             android:layout_width="match_parent"
+                             android:gravity="center"
+                             android:orientation="horizontal">
+
+                            <ImageView
+                                 android:layout_height="30dp"
+                                 android:layout_width="30dp"
+                                 android:src="@drawable/timer"
+                                 android:layout_marginLeft="3dp" />
+
+                            <LinearLayout
+                                 android:layout_height="wrap_content"
+                                 android:layout_width="match_parent"
+                                 android:layout_margin="5dp"
+                                 android:orientation="vertical"
+                                 android:layout_weight="1.0">
+
+                                <TextView
+                                     android:layout_height="wrap_content"
+                                     android:layout_width="wrap_content"
+                                     android:textAppearance="?android:attr/textAppearanceSmall"
+                                     android:fontFamily="serif"
+                                     android:textColor="#1f5a7c"
+                                     android:text="Time Left:"
+                                     android:textStyle="bold" />
+
+                                <TextView
+                                     android:layout_height="wrap_content"
+                                     android:layout_width="wrap_content"
+                                     android:textAppearance="?android:attr/textAppearanceMedium"
+                                     android:textSize="15sp"
+                                     android:textColor="#1f5a7c"
+                                     android:text="00:00"
+                                     android:id="@+id/timerTextView" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                 android:layout_height="30.0dip"
+                                 android:layout_width="20.0dip"
+                                 android:src="@drawable/ic_yoadx_ad_logo"
+                                 android:layout_marginLeft="5.0dip" />
+
+                            <Button
+                                 android:layout_height="40dp"
+                                 android:layout_width="140dp"
+                                 android:fontFamily="serif"
+                                 android:backgroundTint="?colorPrimary"
+                                 android:textColor="#ffffff"
+                                 android:layout_marginRight="7dp"
+                                 android:text="ADD + TIME"
+                                 android:textStyle="bold"
+                                 android:id="@+id/btnAddTime" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                     android:layout_height="wrap_content"
+                     android:layout_width="fill_parent"
+                     android:layout_margin="5.0dip"
+                     app:cardElevation="8.0dip"
+                     app:cardCornerRadius="8.0dip"
+                     android:id="@+id/tek">
+
+                    <LinearLayout
+                         android:layout_height="wrap_content"
+                         android:layout_width="fill_parent"
+                         android:gravity="center"
+                         android:padding="8.0dip"
+                         android:background="@drawable/green_round"
+                         android:orientation="horizontal">
+
+                        <ImageView
+                             android:layout_height="fill_parent"
+                             android:layout_width="50dp"
+                             android:layout_marginEnd="5.0dip"
+                             app:srcCompat="@drawable/ytblue3"
+                             android:id="@+id/j9" />
+
+                        <TextView
+                             android:layout_height="fill_parent"
+                             android:layout_width="230dp"
+                             android:textAppearance="?android:textAppearanceSmall"
+                             android:fontFamily="serif"
+                             android:textColor="#1f5a7c"
+                             android:id="@+id/td"
+                             android:textStyle="bold"
+                             android:text="Support our ytb channel" />
+
+                        <ImageView
+                             android:layout_height="30.0dip"
+                             android:layout_width="20.0dip"
+                             android:src="@drawable/ic_yoadx_ad_logo"
+                             android:layout_marginLeft="5.0dip" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                     android:layout_height="wrap_content"
+                     android:layout_width="fill_parent"
+                     android:gravity="center"
+                     android:orientation="horizontal"
+                     android:layout_marginTop="15.0dip">
+
+                    <com.google.android.gms.ads.AdView
+                         android:layout_height="wrap_content"
+                         android:layout_width="wrap_content"
+                         app:adSize="BANNER"
+                         app:adUnitId="ca-app-pub-2460896719835035/8537891954"
+                         android:id="@+id/adBannerMainView" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

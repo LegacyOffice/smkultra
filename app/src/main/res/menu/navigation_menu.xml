@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/grupo0"
+        android:checkableBehavior="single">
+        
+        <item
+            android:id="@+id/customserver"
+            android:icon="@drawable/ic_shield_edit"
+            android:title="Custom Server" />
+        
+        <item 
+            android:id="@+id/miCloud"
+            android:icon="@drawable/icon_cloud_import"
+            android:title="Import Cloud Config"/> 
+        
+        <group android:id="@+id/grupo7">
+
+            <item
+                android:id="@+id/configUpdate"
+                android:icon="@drawable/ic_file_download"
+                android:title="Update Resources"/>
+            
+            <item
+                android:id="@+id/pogs"
+                android:icon="@drawable/fs"
+                android:title="Release Notes"/>
+
+            <item
+                android:id="@+id/pogs1"
+                android:icon="@drawable/c6"
+                android:title="Announcement"/>
+
+        </group>
+
+    </group>
+    
+    <group android:id="@+id/grupo00"
+        android:checkableBehavior="single">
+        
+        <item android:id="@+id/hardware"
+            android:icon="@drawable/ic_event_note_black_24dp"
+			android:title="Identification"/>
+        
+            <item
+                android:id="@+id/mImport"
+                android:icon="@drawable/ic_folder"
+                android:title="Import Config"/>
+
+            <item
+                android:id="@+id/mExport"
+                android:icon="@drawable/ic_file"
+                android:title="Export Config"/>
+
+    </group>
+    
+    <group android:id="@+id/grupo76">
+
+        <item
+            android:id="@+id/mPayloadGen"
+            android:icon="@drawable/gmi_code_smartphone"
+            android:title="Payload Generator"/>
+
+        <item
+            android:id="@+id/pogse"
+            android:icon="@drawable/ic_webhook"
+            android:title="IP Hunter"/>
+
+            <item
+            android:id="@+id/wifitether"
+            android:icon="@drawable/ic_pisowifi"
+            android:title="WiFi Tether"/>
+
+    </group>
+
+    <group android:id="@+id/grupo86">
+        
+        <item android:id="@+id/miSettings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings"/>
+        
+        <item
+            android:id="@+id/xchan"
+            android:icon="@drawable/ic_teleg"
+            android:title="Telegram Channel"/>
+        
+        <item
+            android:id="@+id/xchat"
+            android:icon="@drawable/ic_teleg"
+            android:title="Group Chat"/>
+        
+    </group>
+
+</menu>

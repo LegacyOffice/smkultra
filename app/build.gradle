@@ -1,0 +1,87 @@
+plugins{
+	   id 'com.android.application'
+       id "com.google.gms.google-services"
+	   id 'io.michaelrocks.paranoid'
+}
+task wrapper(type: Wrapper){
+    gradleVersion = '7.4.2'
+}
+task prepareKotlinBuildScriptModel {
+
+}
+android {
+    compileSdkVersion 33
+    buildToolsVersion "33.0.3"
+    
+    signingConfigs {
+        release {
+            keyAlias 'tekidoer'
+            keyPassword '2244'
+            storeFile file("../key/tekidoer.jks")
+            storePassword '2244'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+    
+    defaultConfig {
+        applicationId "com.demontunnel.project"
+		minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 2
+        versionName "2.2"
+        ndk. abiFilters 'armeabi-v7a','arm64-v8a'
+    }
+    
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+             signingConfig signingConfigs.release
+       }
+    } 
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    
+	packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+    namespace "com.demontunnel.project"
+   
+}
+
+
+dependencies {
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.preference:preference:1.2.0'
+    implementation "androidx.work:work-runtime:2.7.1"
+    implementation files('libs/libv2ray.aar')
+    
+    implementation 'com.google.firebase:firebase-bom:31.2.2'
+	implementation 'com.google.firebase:firebase-core:17.2.1'
+	implementation 'com.google.firebase:firebase-storage:19.1.0'
+    
+    //SSL Fix
+    implementation 'org.conscrypt:conscrypt-android:2.5.1'
+    //PlayStore
+    implementation 'com.google.android.play:core:1.10.3'
+    //Admob
+    implementation 'com.google.android.gms:play-services-ads:23.0.0'
+    //Open Ads
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    //Firebase
+    implementation 'com.google.firebase:firebase-analytics:21.5.1'
+    implementation 'com.google.firebase:firebase-messaging:23.4.1'
+    implementation 'com.google.firebase:firebase-config:21.6.3'
+}

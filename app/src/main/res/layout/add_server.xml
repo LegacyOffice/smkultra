@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			xmlns:app="http://schemas.android.com/apk/res-auto"
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<LinearLayout
+				android:gravity="center"
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="15dp">
+
+				<ImageView
+					android:layout_width="55dp"
+					android:layout_height="55dp"
+					android:src="@drawable/ic_shield_edit"
+					android:tint="@color/red"/>
+
+			</LinearLayout>
+
+			<TextView
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:textStyle="bold"
+				android:textColor="@color/red"
+				android:gravity="center"
+				android:padding="5dp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="Custom Server"/>
+
+			<LinearLayout
+				android:gravity="center"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:layout_marginEnd="10dp"
+				android:layout_marginStart="10dp"
+				android:layout_marginTop="10dp">
+
+				<com.google.android.material.textfield.TextInputLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="10dp"
+					style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+					android:layout_weight="1.0">
+
+					<EditText
+						android:textSize="15dp"
+						android:id="@+id/sName"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:hint="Server Name"
+						android:ems="10"
+						android:inputType="text"/>
+
+				</com.google.android.material.textfield.TextInputLayout>
+
+				<com.google.android.material.textfield.TextInputLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+					android:layout_weight="2.5">
+
+					<EditText
+						android:textSize="15dp"
+						android:id="@+id/sFlag"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:hint="Flag (e.g: us, sg)"
+						android:ems="10"
+						android:maxLength="2"
+						android:inputType="text"/>
+
+				</com.google.android.material.textfield.TextInputLayout>
+
+			</LinearLayout>
+
+			<com.google.android.material.textfield.TextInputLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:layout_marginStart="10dp"
+				android:layout_marginEnd="10dp"
+				style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+				<EditText
+					android:textSize="15dp"
+					android:id="@+id/sHost"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="ServerIP"
+					android:ems="10"
+					android:inputType="text"/>
+
+			</com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+                <EditText
+                    android:textSize="15dp"
+                    android:id="@+id/sPort"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="SSHPort (80)"
+                    android:ems="10"
+                    android:inputType="number"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            
+            
+			<com.google.android.material.textfield.TextInputLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="4dp"
+				android:layout_marginStart="10dp"
+				android:layout_marginEnd="10dp"
+				style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+				<EditText
+					android:textSize="15dp"
+					android:id="@+id/udpIP"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="UDP IP"
+					android:ems="10"
+					android:inputType="text"/>
+
+			</com.google.android.material.textfield.TextInputLayout>
+
+			<LinearLayout
+				android:gravity="center"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:layout_marginEnd="10dp"
+				android:layout_marginStart="10dp"
+				android:layout_marginTop="4dp">
+
+				<com.google.android.material.textfield.TextInputLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="10dp"
+					style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+					android:layout_weight="1.0">
+
+					<EditText
+						android:textSize="15dp"
+						android:id="@+id/sObfs"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:hint="Obfs"
+						android:ems="10"
+						android:inputType="text"/>
+
+				</com.google.android.material.textfield.TextInputLayout>
+
+				<com.google.android.material.textfield.TextInputLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+					android:layout_weight="1.0">
+
+					<EditText
+						android:textSize="15dp"
+						android:id="@+id/sAuth"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:hint="Auth"
+						android:ems="10"
+						android:inputType="text"/>
+
+				</com.google.android.material.textfield.TextInputLayout>
+
+			</LinearLayout>
+
+			
+			<RelativeLayout
+				android:gravity="right"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp">
+
+				<CheckBox
+					android:id="@+id/autologin"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="AutoLogin"
+					android:visibility="gone"/>
+
+			</RelativeLayout>
+
+			<com.google.android.material.textfield.TextInputLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:layout_marginStart="10dp"
+				android:layout_marginEnd="10dp"
+				style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+				<EditText
+					android:textSize="15dp"
+					android:id="@+id/user"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="Username"
+					android:ems="10"
+					android:inputType="text"/>
+
+			</com.google.android.material.textfield.TextInputLayout>
+
+			<com.google.android.material.textfield.TextInputLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:layout_marginStart="10dp"
+				android:layout_marginEnd="10dp"
+				style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+				<EditText
+					android:textSize="15dp"
+					android:id="@+id/pass"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="Password"
+					android:ems="10"
+					android:inputType="text"/>
+
+			</com.google.android.material.textfield.TextInputLayout>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>
+

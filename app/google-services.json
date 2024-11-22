@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "107967916231",
+    "project_id": "demon-tunnel",
+    "storage_bucket": "demon-tunnel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107967916231:android:310b0295726c555ac3f6e2",
+        "android_client_info": {
+          "package_name": "com.demontunnel.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9vpLwA-SS-skz4gDTZM56aQ8dpGeBRkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

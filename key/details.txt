@@ -1,0 +1,63 @@
+Type:  PKCS12
+Password:  2244
+
+Alias:  tekidoer
+Alias  Password:  2244
+
+
+aabResGuard {
+    mappingFile = file("mapping.txt").toPath() // Mapping file used for incremental obfuscation
+    enableObfuscate = true
+    whiteList = [
+            // keep resources
+            "*.R.raw.*",
+            "*.R.drawable.ic_launcher",
+            "*.R.anim.abc*",
+			
+			//FCM
+            "*.R.string.default_web_client_id",
+            "*.R.string.firebase_database_url",
+            "*.R.string.gcm_defaultSenderId",
+            "*.R.string.google_api_key",
+            "*.R.string.google_app_id",
+            "*.R.string.google_crash_reporting_api_key",
+            "*.R.string.google_storage_bucket",
+            "*.R.string.project_id",
+            "*.R.string.com.crashlytics.android.build_id",
+			"*.R.string.fcm_fallback_notification_channel_label",
+    
+            // for fabric
+            "*.R.string.com.crashlytics.*",
+            //Firebase Crashlytics
+            "*.R.bool.com.crashlytics.useFirebaseAppId",
+            "*.R.string.com.crashlytics.useFirebaseAppId",
+            "*.R.string.google_app_id",
+            "*.R.bool.com.crashlytics.CollectDeviceIdentifiers",
+            "*.R.string.com.crashlytics.CollectDeviceIdentifiers",
+            "*.R.bool.com.crashlytics.CollectUserIdentifiers",
+            "*.R.string.com.crashlytics.CollectUserIdentifiers",
+            "*.R.string.com.crashlytics.ApiEndpoint",
+            "*.R.string.io.fabric.android.build_id",
+            "*.R.string.com.crashlytics.android.build_id",
+            "*.R.bool.com.crashlytics.RequireBuildId",
+            "*.R.string.com.crashlytics.RequireBuildId",
+            "*.R.bool.com.crashlytics.CollectCustomLogs",
+            "*.R.string.com.crashlytics.CollectCustomLogs",
+            "*.R.bool.com.crashlytics.Trace",
+            "*.R.string.com.crashlytics.Trace",
+            "*.R.string.com.crashlytics.CollectCustomKeys",
+
+            "*.R.xml.actions",
+            // keep resource file
+            "*/res/xml/actions.xml"
+    ]
+    obfuscatedBundleFileName = "obfuscated-app.aab"
+    mergeDuplicatedRes = false
+    enableFilterFiles = false
+    filterList = [
+            "*/arm64-v8a/*"
+    ]
+    enableFilterStrings = true
+    unusedStringPath = file("unused.txt").toPath() // strings will be filtered in this file
+    languageWhiteList = ["en", "zh"] // keep en,en-xx,zh,zh-xx etc. remove others.
+}

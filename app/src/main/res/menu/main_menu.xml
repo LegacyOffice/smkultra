@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <item 
+        android:icon="@drawable/ic_share_black_24dp" 
+        android:id="@+id/share_vpn" 
+        app:showAsAction="always" />
+    
+    <item android:icon="@drawable/sun" 
+        android:id="@+id/darkMode" 
+        app:showAsAction="always" />
+
+  <item
+     android:id="@+id/mConfigMenu"
+     android:title="Import Config">
+    <menu>
+      <item
+         android:id="@+id/importt"
+         android:title="Import From File"/>
+      <item
+          android:id="@+id/importtclip"
+          android:title="Import From Clipboard"/>
+    </menu>
+  </item>
+  
+    <item
+        android:id="@+id/exportt"
+        android:title="Export Config"/>
+        
+        <item android:id="@+id/miClearData"
+            android:title="Clear Data"/>
+
+        <item android:id="@+id/miSettings1"
+            android:title="Exit"/>
+
+</menu>

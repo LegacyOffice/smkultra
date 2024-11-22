@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_height="wrap_content"
+     android:layout_width="match_parent"
+     android:layout_margin="5.0dip"
+     android:padding="0.0dip">
+
+    <LinearLayout
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         app:cardUseCompatPadding="true"
+         android:id="@+id/spinner_item_layout">
+
+        <RelativeLayout
+             android:layout_height="50.0dip"
+             android:layout_width="fill_parent">
+
+            <LinearLayout
+                 android:layout_height="50.0dip"
+                 android:layout_width="fill_parent"
+                 android:gravity="center_vertical"
+                 android:orientation="horizontal"
+                 android:paddingBottom="15.0dip"
+                 android:paddingTop="1.0dip">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                     android:layout_height="30.0dip"
+                     android:layout_width="30.0dip"
+                     android:layout_marginLeft="10.0dip"
+                     android:id="@+id/itemImage" />
+
+                <LinearLayout
+                     android:layout_height="wrap_content"
+                     android:layout_width="wrap_content"
+                     android:orientation="vertical"
+                     android:layout_marginLeft="10.0dip"
+                     android:layout_weight="1.0">
+
+                    <com.google.android.material.textview.MaterialTextView
+                         android:layout_height="wrap_content"
+                         android:layout_width="fill_parent"
+                         android:textSize="14.0sp"
+                         android:id="@+id/itemName" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                         android:layout_height="wrap_content"
+                         android:layout_width="wrap_content"
+                         android:textAppearance="?android:textAppearanceSmall"
+                         android:textSize="9.0sp"
+                         android:letterSpacing="0.1"
+                         android:id="@+id/info" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                 android:layout_height="fill_parent"
+                 android:layout_width="wrap_content"
+                 android:layout_centerInParent="true"
+                 android:visibility="visible"
+                 android:gravity="center|right"
+                 android:orientation="vertical"
+                 android:layout_marginRight="10.0dip"
+                 android:layout_alignParentRight="true">
+
+                <TextView
+                     android:layout_height="wrap_content"
+                     android:layout_width="wrap_content"
+                     android:gravity="center"
+                     android:textSize="9.0dip"
+                     android:id="@+id/statusping"
+                     android:text=" " />
+
+                <TextView
+                     android:layout_height="wrap_content"
+                     android:layout_width="wrap_content"
+                     android:gravity="center"
+                     android:textSize="9.0dip"
+                     android:id="@+id/pinglatency"
+                     android:text=" " />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
