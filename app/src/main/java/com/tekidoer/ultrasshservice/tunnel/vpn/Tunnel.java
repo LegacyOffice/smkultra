@@ -51,7 +51,7 @@ import android.app.PendingIntent;
 import com.tekidoer.ultrasshservice.logger.SkStatus;
 import com.tekidoer.ultrasshservice.SocksHttpService;
 import android.content.pm.PackageManager;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 
 /**
 * Baseado no Cordova Plugin Tun2Socks

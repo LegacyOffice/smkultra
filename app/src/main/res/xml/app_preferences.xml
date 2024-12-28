@@ -76,7 +76,7 @@
    	<androidx.preference.Preference
            app:iconSpaceReserved="false"
     	android:key="screenAdvancedSettings"
-		app:fragment="com.tekidoer.sockshttp.preference.SettingsAdvancedPreference"
+		app:fragment="com.smkultratun.pro.preference.SettingsAdvancedPreference"
         android:title="@string/category_advanced_settings"
 	/>
 

@@ -15,7 +15,7 @@ import androidx.preference.PreferenceManager;
 import androidx.preference.CheckBoxPreference;
 import android.content.Intent;
 import com.tekidoer.sockshttp.tekidoer_apps;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import com.tekidoer.ultrasshservice.logger.SkStatus;
 import com.tekidoer.ultrasshservice.config.SettingsConstants;
 import com.tekidoer.ultrasshservice.config.Settings;

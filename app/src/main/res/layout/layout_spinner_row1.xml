@@ -38,7 +38,7 @@
                      android:layout_width="fill_parent"
                      android:alpha="0.8"
                      android:textAppearance="?android:textAppearanceMedium"
-                     android:textSize="11.0dip"
+                     android:textSize="10.0dip"
                      android:singleLine="true"
                      android:textStyle="bold"
                      android:id="@+id/name" />
@@ -46,6 +46,7 @@
             </LinearLayout>
 
             <LinearLayout
+                 android:id="@+id/Stat"
                  android:layout_height="wrap_content"
                  android:layout_width="wrap_content"
                  android:orientation="vertical">
@@ -53,14 +54,14 @@
                 <TextView
                      android:layout_height="wrap_content"
                      android:layout_width="match_parent"
-                     android:textSize="9.0dip"
+                     android:textSize="8.0dip"
                      android:text="loading..."
                      android:id="@+id/isol" />
 
                 <TextView
                      android:layout_height="wrap_content"
                      android:layout_width="match_parent"
-                     android:textSize="9.0dip"
+                     android:textSize="8.0dip"
                      android:text="999ms"
                      android:id="@+id/ping" />
 

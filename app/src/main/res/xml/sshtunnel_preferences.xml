@@ -35,7 +35,7 @@
 			android:singleLine="true"
 			android:dialogLayout="@layout/pref_dialog_edittext_fix" />
 		
-		<com.tekidoer.sockshttp.view.PasswordEditTextPreference
+		<com.smkultratun.pro.view.PasswordEditTextPreference
             android:key="sshPass"
             android:title="@string/password"
             android:summary="@string/no_value"

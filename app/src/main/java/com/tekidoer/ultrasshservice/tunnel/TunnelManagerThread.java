@@ -38,7 +38,7 @@ import com.trilead.ssh2.ConnectionMonitor;
 import com.trilead.ssh2.DebugLogger;
 import com.trilead.ssh2.InteractiveCallback;
 import com.trilead.ssh2.ServerHostKeyVerifier;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import com.tekidoer.ultrasshservice.config.PasswordCache;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -136,19 +136,19 @@ public class TunnelManagerThread implements Runnable, ConnectionMonitor, Interac
         SharedPreferences prefs = mConfig.getPrefsPrivate();
         int tunnelType = prefs.getInt(Settings.TUNNELTYPE_KEY, Settings.bTUNNEL_TYPE_SSH_DIRECT);
         if(tunnelType==Settings.bTUNNEL_TYPE_SSH_PROXY){
-            SkStatus.logInfo("<strong>"+"Secure Shell (SSH) | Demon Tunnel"+"</strong>");
+            SkStatus.logInfo("<strong>"+"Secure Shell (SSH) | SMK ULTRA TUN"+"</strong>");
         }else if(tunnelType==Settings.bTUNNEL_TYPE_SSH_SSLTUNNEL){
-            SkStatus.logInfo("<strong>"+"Secure Shell (SSL) | Demon Tunnel"+"</strong>");
+            SkStatus.logInfo("<strong>"+"Secure Shell (SSL) | SMK ULTRA TUN"+"</strong>");
         }else if(tunnelType==Settings.bTUNNEL_TYPE_PAY_SSL){
-            SkStatus.logInfo("<strong>"+"Secure Shell (SSL + SSH) | Demon Tunnel"+"</strong>");
+            SkStatus.logInfo("<strong>"+"Secure Shell (SSL + SSH) | SMK ULTRA TUN"+"</strong>");
         }else if(tunnelType==Settings.bTUNNEL_TYPE_SSL_RP){
-            SkStatus.logInfo("<strong>"+"Secure Shell (SSL + SPOOF) | Demon Tunnel"+"</strong>");
+            SkStatus.logInfo("<strong>"+"Secure Shell (SSL + SPOOF) | SMK ULTRA TUN"+"</strong>");
         }else if(tunnelType==Settings.bTUNNEL_TYPE_SLOWDNS){
-            SkStatus.logInfo("<strong>"+"Secure Shell (SlowDNS) | Demon Tunnel"+"</strong>");
+            SkStatus.logInfo("<strong>"+"Secure Shell (SlowDNS) | SMK ULTRA TUN"+"</strong>");
         }else if(tunnelType==Settings.bTUNNEL_TYPE_UDP){
-            SkStatus.logInfo("<strong>"+"Secure Shell (UDP) | Demon Tunnel"+"</strong>");
+            SkStatus.logInfo("<strong>"+"Secure Shell (UDP) | SMK ULTRA TUN"+"</strong>");
         } else if (tunnelType == Settings.bTUNNEL_TYPE_V2RAY) {
-            SkStatus.logInfo("<strong>" + "V2RAY (Vmess/Vless) | Demon Tunnel" + "</strong>");
+            SkStatus.logInfo("<strong>" + "V2RAY (Vmess/Vless) | SMK ULTRA TUN" + "</strong>");
         }else{
             SkStatus.logInfo("<strong>"+"Direct Connection"+"</strong>");
         }

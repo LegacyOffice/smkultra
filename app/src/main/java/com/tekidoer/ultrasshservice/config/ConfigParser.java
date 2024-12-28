@@ -18,7 +18,7 @@ import android.content.pm.PackageManager;
 import com.tekidoer.ultrasshservice.logger.SkStatus;
 import com.tekidoer.ultrasshservice.util.FileUtils;
 import java.io.InputStream;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import java.io.ByteArrayOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.OutputStream;

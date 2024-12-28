@@ -154,7 +154,7 @@ public class tekidoer_apps extends Application implements ActivityLifecycleCallb
 	private class AppOpenAdManager {
 
 		private static final String LOG_TAG = "AppOpenAdManager";
-		private static final String AD_UNIT_ID = "ca-app-pub-2460896719835035/1972483604";
+		private static final String AD_UNIT_ID = "ca-app-pub-8221353512185856/9556117976";
 
 		private AppOpenAd appOpenAd = null;
 		private boolean isLoadingAd = false;

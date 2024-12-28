@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 
 public class errors extends AppCompatActivity {
     

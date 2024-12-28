@@ -8,7 +8,7 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.titomx.build" />
+                  <option name="appId" value="com.business.manager" />
                 </ConnectionSetting>
               </option>
               <option name="failureTypes">
@@ -27,10 +27,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="one.adcasher.xtunnel" />
-                  <option name="mobileSdkAppId" value="1:947465938672:android:47cbf064f2f177f08c4435" />
-                  <option name="projectId" value="new-x-tunnel" />
-                  <option name="projectNumber" value="947465938672" />
+                  <option name="appId" value="com.smkultratun.pro" />
+                  <option name="mobileSdkAppId" value="1:938844900008:android:9339f2543f06f00d2ad09d" />
+                  <option name="projectId" value="business-d" />
+                  <option name="projectNumber" value="938844900008" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

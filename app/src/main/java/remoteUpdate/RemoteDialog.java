@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.AppCompatButton;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 
 
 public class RemoteDialog extends Dialog {

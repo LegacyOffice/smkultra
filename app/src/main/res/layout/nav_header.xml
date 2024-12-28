@@ -17,7 +17,7 @@
          android:textColor="#FFFFFFFF"
          android:id="@+id/hx"
          android:paddingTop="8.0dip"
-         android:text="DEMON VPN"
+         android:text="SMK ULTRA TUN"
          android:textStyle="bold" />
 
     <TextView

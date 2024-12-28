@@ -18,25 +18,25 @@ import io.michaelrocks.paranoid.Obfuscate;
 public class ConfigUtil {
 
     Context context;
-    public static final String PASSWORD = new String(new byte[]{57,57,68,69,77,79,78});    
-          
+    public static final String PASSWORD = new String(new byte[]{115,109,107,85,108,116,114,97,84,117,110,80,114,105,109,101});    
+
     public ConfigUtil(Context context) {
         this.context = context;
     }
 
-	public String getNote() {
-    JSONObject jsonConfig = getJSONConfig();
-    if (jsonConfig != null) {
-        try {
-            return jsonConfig.getString("ReleaseNotes");
-        } catch (Exception e) {
-            e.printStackTrace();
+    public String getNote() {
+        JSONObject jsonConfig = getJSONConfig();
+        if (jsonConfig != null) {
+            try {
+                return jsonConfig.getString("ReleaseNotes");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+        return null; // Or a default value
     }
-    return null; // Or a default value
-}
-	
-	public String geNote1() {
+
+    public String geNote1() {
         try {
             String releaseNote1 = getJSONConfig().getString("ReleaseNotes1");
             return releaseNote1;
@@ -45,21 +45,19 @@ public class ConfigUtil {
         }
         return null;
     }
-	
+
     public boolean time() {
-    JSONObject jsonConfig = getJSONConfig();
-    if (jsonConfig != null) {
-        try {
-            return jsonConfig.getBoolean("UseTimer");
-        } catch (Exception e) {
-            e.printStackTrace();
+        JSONObject jsonConfig = getJSONConfig();
+        if (jsonConfig != null) {
+            try {
+                return jsonConfig.getBoolean("UseTimer");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+        return false; // or some default value
     }
 
-    // Handle the case where getJSONConfig() returns null or an error occurs
-    return false; // or some default value
-}
-    
     public String getVersion() {
         try {
             String version = getJSONConfig().getString("Version");
@@ -69,7 +67,7 @@ public class ConfigUtil {
             return e.getMessage();
         }
     }
-    
+
     public JSONArray getServersArray() {
         try {
             if (getJSONConfig() != null) {
@@ -82,38 +80,37 @@ public class ConfigUtil {
         return null;
     }
 
-	public ArrayList getNetworkSSLArray(ArrayList arraylist) {
-		try {
-			if (getJSONConfig() != null) {
-				JSONArray array = getJSONConfig().getJSONArray("Networks");
-				JSONArray jarr2 = array.getJSONObject(0).getJSONArray("SSL");
-				for (int i = 0; i < jarr2.length(); i++) {
-					JSONObject obj = jarr2.getJSONObject(i);
-					arraylist.add(obj.getString("Name"));
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+    public ArrayList getNetworkSSLArray(ArrayList arraylist) {
+        try {
+            if (getJSONConfig() != null) {
+                JSONArray array = getJSONConfig().getJSONArray("Networks");
+                JSONArray jarr2 = array.getJSONObject(0).getJSONArray("SSL");
+                for (int i = 0; i < jarr2.length(); i++) {
+                    JSONObject obj = jarr2.getJSONObject(i);
+                    arraylist.add(obj.getString("Name"));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-	public ArrayList getNetworkSSHArray(ArrayList arraylist) {
-		try {
-			if (getJSONConfig() != null) {
-				JSONArray array = getJSONConfig().getJSONArray("Networks");
-				JSONArray jarr2 = array.getJSONObject(0).getJSONArray("SSH");
-				for (int i = 0; i < jarr2.length(); i++) {
-					JSONObject obj = jarr2.getJSONObject(i);
-					arraylist.add(obj.getString("Name"));
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
+    public ArrayList getNetworkSSHArray(ArrayList arraylist) {
+        try {
+            if (getJSONConfig() != null) {
+                JSONArray array = getJSONConfig().getJSONArray("Networks");
+                JSONArray jarr2 = array.getJSONObject(0).getJSONArray("SSH");
+                for (int i = 0; i < jarr2.length(); i++) {
+                    JSONObject obj = jarr2.getJSONObject(i);
+                    arraylist.add(obj.getString("Name"));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public JSONArray getNetworksArray() {
         try {
@@ -181,5 +178,4 @@ public class ConfigUtil {
         }
         return sb.toString();
     }
-    
 }

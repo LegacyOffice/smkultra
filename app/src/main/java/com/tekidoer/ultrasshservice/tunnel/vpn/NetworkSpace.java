@@ -15,7 +15,7 @@ import java.util.Locale;
 import java.util.PriorityQueue;
 import java.util.TreeSet;
 import java.util.Vector;
-import com.demontunnel.project.BuildConfig;
+import com.smkultratun.pro.BuildConfig;
 
 
 public class NetworkSpace {

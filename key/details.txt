@@ -1,8 +1,8 @@
 Type:  PKCS12
-Password:  2244
+Password:  omukugu1
 
-Alias:  tekidoer
-Alias  Password:  2244
+Alias:  SimTech
+Alias  Password:  omukugu1
 
 
 aabResGuard {

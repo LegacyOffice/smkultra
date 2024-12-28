@@ -342,7 +342,7 @@
          android:layout_marginBottom="12.0dip"
          ads:adSize="BANNER"
          android:gravity="center_horizontal"
-         ads:adUnitId="ca-app-pub-2460896719835035/8537891954"
+		ads:adUnitId="ca-app-pub-8221353512185856/7184433051"
          android:layout_marginTop="12.0dip"
          android:id="@+id/adView3" />
 

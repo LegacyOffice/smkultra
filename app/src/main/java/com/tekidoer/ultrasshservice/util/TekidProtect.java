@@ -6,7 +6,7 @@ import dalvik.system.BaseDexClassLoader;
 import dalvik.system.DexFile;
 import java.lang.reflect.Field;
 import java.util.Enumeration;
-import com.demontunnel.project.*;
+import com.smkultratun.pro.*;
 import io.michaelrocks.paranoid.Obfuscate;
 
 @Obfuscate
@@ -14,7 +14,7 @@ public class TekidProtect {
 
 	private static final String TAG = TekidProtect.class.getSimpleName();
 	
-	private static final String APP_BASE = "com.demontunnel.project";
+	private static final String APP_BASE = "com.smkultratun.pro";
 	
 	// Assinatura da Google Play
 	//private static final String APP_SIGNATURE = "XbhYZ4Bz/9F4cWLIDMg0wl/+jl8=\n";
@@ -38,7 +38,7 @@ public class TekidProtect {
 	
 	public void simpleProtect() {
         try {
-            if (!APP_BASE.equals(mContext.getPackageName().toLowerCase()) || !mContext.getString(R.string.app_name).toLowerCase().equals("demon vpn")) {
+            if (!APP_BASE.equals(mContext.getPackageName().toLowerCase()) || !mContext.getString(R.string.app_name).toLowerCase().equals("smk ultra tun")) {
                 if (mContext instanceof Activity) {
                     ((Activity) mContext).finishAndRemoveTask();
                     System.exit(0);

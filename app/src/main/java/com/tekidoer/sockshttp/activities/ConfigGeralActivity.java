@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.view.View;
 import android.widget.Toast;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.app.DialogFragment;

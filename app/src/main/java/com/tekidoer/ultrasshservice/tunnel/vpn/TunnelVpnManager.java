@@ -31,7 +31,7 @@ import android.util.Log;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 import com.tekidoer.ultrasshservice.logger.SkStatus;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import com.tekidoer.ultrasshservice.config.Settings;
 import android.content.SharedPreferences;
 

@@ -15,21 +15,21 @@ android {
     
     signingConfigs {
         release {
-            keyAlias 'tekidoer'
-            keyPassword '2244'
-            storeFile file("../key/tekidoer.jks")
-            storePassword '2244'
+            keyAlias 'SimTech'
+            keyPassword 'omukugu1'
+            storeFile file("../key/SimTech.jks")
+            storePassword 'omukugu1'
             v1SigningEnabled true
             v2SigningEnabled true
         }
     }
     
     defaultConfig {
-        applicationId "com.demontunnel.project"
+        applicationId "com.smkultratun.pro"
 		minSdkVersion 21
         targetSdkVersion 33
-        versionCode 2
-        versionName "2.2"
+        versionCode 5
+        versionName "4.0.3"
         ndk. abiFilters 'armeabi-v7a','arm64-v8a'
     }
     
@@ -56,7 +56,7 @@ android {
             useLegacyPackaging = true
         }
     }
-    namespace "com.demontunnel.project"
+    namespace "com.smkultratun.pro"
    
 }
 

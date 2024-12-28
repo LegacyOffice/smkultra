@@ -128,7 +128,7 @@ import com.tekidoer.ultrasshservice.tunnel.TunnelUtils;
 import com.tekidoer.ultrasshservice.tunnel.UDPThread;
 import com.tekidoer.ultrasshservice.util.TekidProtect;
 import com.tekidoer.ultrasshservice.util.securepreferences.SecurePreferences;
-import com.tekidoer.ultrasshservice.util.securepreferences.model.vagol;
+import com.tekidoer.sockshttp.util.ConfigUpdate;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -158,8 +158,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import android.util.Base64;
 import java.nio.charset.StandardCharsets;
-import com.demontunnel.project.BuildConfig;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.BuildConfig;
+import com.smkultratun.pro.R;
 import io.michaelrocks.paranoid.Obfuscate;
 import remoteUpdate.RemoteDialog;
 import remoteUpdate.RemoteUtil;
@@ -199,7 +199,7 @@ public class MainActivity extends BaseActivity implements  SkStatus.StateListene
     private LogsAdapter mLogAdapter;
     private RecyclerView logList;
     private TextView config_ver_txt;
-    private TextView connectionStatus;
+    private ImageView connectionStatus;
     private InterstitialAd interstitialAd;
     private boolean mShown, mShown2;
 
@@ -216,7 +216,7 @@ public class MainActivity extends BaseActivity implements  SkStatus.StateListene
     private long mEndTime;
     private long saved_ads_time;
     private boolean mTimerEnabled;
-
+    
     private SharedPreferences prefs;
     public static boolean mConnected;
     private DrawerPanelMain mDrawerPanel;
@@ -384,7 +384,7 @@ firebaseRemoteConfigGet();
         .setIcon(R.drawable.icon)
         .setPositiveButton("YES PLEASE", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int i) {
-                startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://t.me/demontunnel")));
+                startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://t.me/smk_ultra_tun")));
             }
         })
         .setNeutralButton("LATER", null)
@@ -438,7 +438,7 @@ firebaseRemoteConfigGet();
         config_ver_txt.setText(config.getVersion());
         bytesIn = (TextView) findViewById(R.id.bytes_in);
         bytesOut = (TextView) findViewById(R.id.bytes_out);
-        connectionStatus = (TextView)findViewById(R.id.connect_status);
+        connectionStatus = (ImageView)findViewById(R.id.connect_status);
         mainLayout = (LinearLayout) findViewById(R.id.activity_mainLinearLayout);
         starterButton = (Button) findViewById(R.id.activity_starterButtonMain);
         stopperButton = (Button) findViewById(R.id.stoppertunnel);
@@ -450,7 +450,7 @@ firebaseRemoteConfigGet();
         btn.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://youtube.com/@demon-450vpn?si=AJrI6lad532YL0lc")));
+                    startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://t.me/smk_ultra_tun")));
                 }
             });
         reconnect = (Switch) findViewById(R.id.reconnect);
@@ -480,44 +480,44 @@ firebaseRemoteConfigGet();
         v2lay = (TextInputLayout) findViewById(R.id.v2lay);
 
         edPayload = (EditText) findViewById(R.id.edCustomPayload);
-        edPayload.setText(prefs.getString("SavedHTTP", ""));
+        //edPayload.setText(prefs.getString("SavedHTTP", ""));
         edSsl = (EditText) findViewById(R.id.edCustomSSL);
-        edSsl.setText(prefs.getString("SavedSSL", ""));
+        //edSsl.setText(prefs.getString("SavedSSL", ""));
         
         v2link = (EditText) findViewById(R.id.v2link);
-        v2link.setText(prefs.getString("SavedV2Ray", ""));
+        //v2link.setText(prefs.getString("SavedV2Ray", ""));
 
         sslPayload = (EditText) findViewById(R.id.sslCustomPayload);
-        sslPayload.setText(prefs.getString("SavedHTTP + SSL", ""));
+        //sslPayload.setText(prefs.getString("SavedHTTP + SSL", ""));
         edSslpayload = (EditText) findViewById(R.id.sniCustomSSL);
-        edSslpayload.setText(prefs.getString("SavedSSL + HTTP", ""));
+        //edSslpayload.setText(prefs.getString("SavedSSL + HTTP", ""));
 
         webuser = (EditText) findViewById(R.id.webUser);
-        webuser.setText(prefs.getString("SavedUSER", ""));
+        //webuser.setText(prefs.getString("SavedUSER", ""));
         webpass = (EditText) findViewById(R.id.webPass);
-        webpass.setText(prefs.getString("SavedPASS", ""));
+        //webpass.setText(prefs.getString("SavedPASS", ""));
 
         chaKey = (EditText) findViewById(R.id.textPub);
-        chaKey.setText(prefs.getString("SavedCHAVE", ""));
+        //chaKey.setText(prefs.getString("SavedCHAVE", ""));
         sersKey = (EditText) findViewById(R.id.textServer);
-        sersKey.setText(prefs.getString("SavedSERKEY", ""));
+        //sersKey.setText(prefs.getString("SavedSERKEY", ""));
         dnsKeys = (EditText) findViewById(R.id.textDns);
-        dnsKeys.setText(prefs.getString("SavedDNS", ""));
+        //dnsKeys.setText(prefs.getString("SavedDNS", ""));
 
         dnssuser = (EditText) findViewById(R.id.textUser);
-        dnssuser.setText(prefs.getString("SavedUSER", ""));
+        //dnssuser.setText(prefs.getString("SavedUSER", ""));
         dnsspass = (EditText) findViewById(R.id.textPass);
-        dnsspass.setText(prefs.getString("SavedPASS", ""));
+        //dnsspass.setText(prefs.getString("SavedPASS", ""));
 
         bug_host = (EditText) findViewById(R.id.webBug);
-        bug_host.setText(prefs.getString("SavedBUG", ""));
+        //bug_host.setText(prefs.getString("SavedBUG", ""));
 
         udpServ = (EditText) findViewById(R.id.udpIp);
-        udpServ.setText(prefs.getString("SavedUDP", ""));
+        //udpServ.setText(prefs.getString("SavedUDP", ""));
         udpObfs = (EditText) findViewById(R.id.udpUser);
-        udpObfs.setText(prefs.getString("SavedOBFS", ""));
+        //udpObfs.setText(prefs.getString("SavedOBFS", ""));
         udpAuth = (EditText) findViewById(R.id.udpPass);
-        udpAuth.setText(prefs.getString("SavedAUTH", ""));
+        //udpAuth.setText(prefs.getString("SavedAUTH", ""));
 
         messLay = (LinearLayout) findViewById(R.id.messageLayout);
         tvMess = (TextView) findViewById(R.id.tvMessage);
@@ -700,6 +700,7 @@ firebaseRemoteConfigGet();
                 }
             });
 
+        
         imgFavorite = (Switch) findViewById(R.id.ckSetup);
         imgFavorite.setChecked(prefs.getBoolean("SavedSetup", false));
         imgFavorite.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
@@ -1409,7 +1410,7 @@ dialog.show();
 	private void getResults(String ee) {
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
-    StorageReference imageRef = storageRef.child( ee + ".chz");
+    StorageReference imageRef = storageRef.child( ee + ".sut");
     imageRef.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
         @Override
         public void onComplete(Task<Uri> task) {
@@ -1605,6 +1606,7 @@ dialog.show();
 
                 case R.id.configUpdate:
                     updateConfig(false);
+                Toast.makeText(MainActivity.this, "Checking Config Updates please wait.....", Toast.LENGTH_LONG).show();
                     break;
                 
                case R.id.miCloud:
@@ -1625,11 +1627,11 @@ dialog.show();
 
                 case R.id.xchan:
                     startActivity(new Intent("android.intent.action.VIEW",
-                                             Uri.parse("https://t.me/demontunnel")));
+                                             Uri.parse("https://t.me/smk_ultra_tun")));
                     break;
                 case R.id.xchat:
                     startActivity(new Intent("android.intent.action.VIEW",
-                                             Uri.parse("https://t.me/demontunnel")));
+                                             Uri.parse("https://t.me/smk_ultra_tun")));
                     break;
 
                 case R.id.customserver:
@@ -2110,7 +2112,7 @@ dialog.show();
                     prefs.edit().putInt(Settings.TUNNELTYPE_KEY, Settings.bTUNNEL_TYPE_SSH_PROXY).apply();
                     String payload = config.getNetworksArray().getJSONObject(pos).getString("Payload");
                     String ssh_server = config.getServersArray().getJSONObject(pos1).getString("ServerIP");
-                    edit.putString(Settings.CUSTOM_PAYLOAD_KEY, VPNUtils.IsangTangangNagDecrypt(payload).replace("ws.demonproject.tk", VPNUtils.IsangTangangNagDecrypt(ssh_server)));
+                    edit.putString(Settings.CUSTOM_PAYLOAD_KEY, VPNUtils.IsangTangangNagDecrypt(payload).replace("www.bug.com", VPNUtils.IsangTangangNagDecrypt(ssh_server)));
                     edit.apply();
 
                 } //SSH SSL
@@ -2126,7 +2128,7 @@ dialog.show();
                     String payload = config.getNetworksArray().getJSONObject(pos).getString("Payload");
                     String ssh_server = config.getServersArray().getJSONObject(pos1).getString("ServerIP");
                     String snissl = config.getNetworksArray().getJSONObject(pos).getString("SNI");
-                    edit.putString(Settings.CUSTOM_PAYLOAD_KEY, VPNUtils.IsangTangangNagDecrypt(payload).replace("ws.demonproject.tk", VPNUtils.IsangTangangNagDecrypt(ssh_server)));
+                    edit.putString(Settings.CUSTOM_PAYLOAD_KEY, VPNUtils.IsangTangangNagDecrypt(payload).replace("www.bug.com", VPNUtils.IsangTangangNagDecrypt(ssh_server)));
                     edit.putString(Settings.SERVIDOR_KEY, VPNUtils.IsangTangangNagDecrypt(snissl));
                     edit.apply();
                     
@@ -2458,7 +2460,7 @@ dialog.show();
         final SharedPreferences.Editor editor = new Settings(this).getPrefsPrivate().edit();
         try {
             DataBaseHelper db = new DataBaseHelper(this, "ImportedConfig");
-            String data = AESCrypt.decrypt(new String(new byte[]{100,101,109,111,110,100,101,118,115,}), str);
+            String data = AESCrypt.decrypt(new String(new byte[]{115,109,107,115,97,121,115,111}), str);
             final JSONObject obj = new JSONObject(data);
             if (obj.optBoolean("isPassON", false)) {
                 View inflate = getLayoutInflater().inflate(R.layout.input_text, null);
@@ -2782,7 +2784,8 @@ dialog.show();
                     if (SkStatus.isTunnelActive()){
 
                         if (level.equals(ConnectionStatus.LEVEL_CONNECTED)){
-                            connectionStatus.setText(Html.fromHtml("<b><font color='#07e807'>Connected</font></b>"));
+                            connectionStatus.setImageResource(R.drawable.green_dot);
+
                             isRunning(true);
 
                             if (!mShown){
@@ -2800,23 +2803,23 @@ dialog.show();
                             }
                         }
                         if (level.equals(ConnectionStatus.LEVEL_NOTCONNECTED)){
-                            connectionStatus.setText(R.string.servicestop);
+                            connectionStatus.setImageResource(R.drawable.red_dot);
                             isRunning(false);
                         }
                         if (level.equals(ConnectionStatus.LEVEL_CONNECTING_SERVER_REPLIED)){
-                            connectionStatus.setText(R.string.authenticating);
+                            connectionStatus.setImageResource(R.drawable.yellow_dot);
                         }
                         if (level.equals(ConnectionStatus.LEVEL_CONNECTING_NO_SERVER_REPLY_YET)){
-                            connectionStatus.setText(R.string.connecting);
+                            connectionStatus.setImageResource(R.drawable.yellow_dot);
                             //@interface  ImageView con =(ImageView)findViewById(R.id.ic);
                             // con.setImageResource(R.drawable.ic_connecting);
                         }
                         if (level.equals(ConnectionStatus.LEVEL_AUTH_FAILED)){
-                            connectionStatus.setText(R.string.authfailed);
+                            connectionStatus.setImageResource(R.drawable.red_dot);
                             isRunning(false);
                         }
                         if (level.equals(ConnectionStatus.UNKNOWN_LEVEL)){
-                            connectionStatus.setText("Disconnected");
+                            connectionStatus.setImageResource(R.drawable.red_dot);
                             isRunning(false);
                             if (!mShown2){
                                 MainActivity.toast(getApplicationContext(), R.color.red, "Disconnected");
@@ -2834,7 +2837,7 @@ dialog.show();
                         }
                     }
                     if (level.equals(ConnectionStatus.LEVEL_NONETWORK)){
-                        connectionStatus.setText(R.string.nonetwork);
+                        connectionStatus.setImageResource(R.drawable.unknown_dot);
                         isRunning(false);
                     }
                 }
@@ -2897,7 +2900,7 @@ dialog.show();
                 Intent myIntent = new Intent(Intent.ACTION_SEND);
                 myIntent.setType("text/plain");
                 String body = "https://play.google.com/store/apps/details?id="+getPackageName();
-                String sub = "Download X TUNNEL PRO UDP on Google Play Store!";
+                String sub = "Download SMK ULTRA TUN on Google Play Store!";
                 myIntent.putExtra(Intent.EXTRA_SUBJECT,sub);
                 myIntent.putExtra(Intent.EXTRA_TEXT,body);
                 startActivity(Intent.createChooser(myIntent, "Share Using"));
@@ -3159,83 +3162,113 @@ dialog.show();
     }
 
     private void updateConfig(final boolean isOnCreate) {
-        new vagol(this, new vagol.OnUpdateListener() {
-                @Override
-                public void onUpdateListener(String result) {
-                    try {
-                        if (!result.contains("Error on getting data")) {
-                            String json_data = AESCrypt.decrypt(config.PASSWORD, result);
-                            if (isNewVersion(json_data)) {
-                                newUpdateDialog(result);
-                            } else {
-                                if (!isOnCreate) {
-                                    noUpdateDialog();
-                                }
-                            }
-                        } else if(result.contains("Error on getting data") && !isOnCreate){
-                            errorUpdateDialog(result);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }).start(isOnCreate);
-    }
+		new ConfigUpdate(this, new ConfigUpdate.OnUpdateListener() {
+			@Override
+			public void onUpdateListener(String result) {
+				try {
+					if (!result.contains("Error on getting data")) {
+						String json_data = AESCrypt.decrypt(config.PASSWORD, result);
+						if (isNewVersion(json_data)) {
+                        // newUpdateDialog(result);
+							letUpdate(result);
+						} else {
+							if (!isOnCreate) {
+							}
+						}
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}).start(isOnCreate);
+	}
+
 
     int status = 0 ;
     ProgressDialog pd;
     byte[] YourDataA;
-    private void letUpdate(final String result){
-        YourDataA=result.getBytes();
-        pd = new ProgressDialog(this,R.style.AppCompatAlertDialogStyle);
-        pd.setMax(100);
-        pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        pd.getWindow().setBackgroundDrawableResource(R.drawable.background_tek);
-        pd.getWindow().getAttributes().windowAnimations = R.style.dialog;
-        pd.setOnDismissListener(new DialogInterface.OnDismissListener(){
+    private void letUpdate(final String result) {
+    YourDataA = result.getBytes();
+    pd = new ProgressDialog(this, R.style.AppCompatAlertDialogStyle);
+    pd.setMax(100);
+    pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+    pd.getWindow().setBackgroundDrawableResource(R.drawable.background_tek);
+    pd.getWindow().getAttributes().windowAnimations = R.style.dialog;
 
-                @Override
-                public void onDismiss(DialogInterface p1) {
-                    try {
-                        File file = new File(getFilesDir(), "Config.json");
-                        OutputStream out = new FileOutputStream(file);
-                        out.write(result.getBytes());
-                        out.flush();
-                        out.close();
-                        restart_app();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    //.setText(getConfig());
-                    status = 0;
+    pd.show();
+
+    new Thread(new Runnable() {
+        @Override
+        public void run() {
+        TelephonyManager telephonyManager = ((TelephonyManager) getApplicationContext().getSystemService(Context.TELEPHONY_SERVICE));
+            try {
+                // Simulate progress
+                for (status = 0; status <= 100; status++) {
+                    Thread.sleep(15);
+                    runOnUiThread(() -> pd.setProgress(status));
                 }
-            });
 
-        new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    while (status < 100) {
-                        status += 1;
-                        try {
-                            Thread.sleep(15);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                // Step 1: Decrypt the result if encrypted
+                String decryptedResult;
+                try {
+                    decryptedResult = AESCrypt.decrypt(config.PASSWORD, result);
+                } catch (Exception e) {
+                    throw new Exception("Failed to decrypt the result: " + e.getMessage());
+                }
+
+                // Step 2: Parse JSON and filter the Networks array
+                JSONObject resultJson = new JSONObject(decryptedResult);
+                JSONArray networksArray = resultJson.optJSONArray("Networks");
+
+                if (networksArray != null) {
+                    JSONArray filteredNetworks = new JSONArray();
+                    for (int i = 0; i < networksArray.length(); i++) {
+                        JSONObject networkObj = networksArray.getJSONObject(i);
+                        String flag = networkObj.optString("FLAG", "");
+                        String mCountry = telephonyManager.getSimCountryIso();
+
+                        // Filter by FLAG
+                        if ("all".equals(flag) || mCountry.equals(flag)) {
+                            filteredNetworks.put(networkObj);
                         }
-                        runOnUiThread(new Runnable() {
-
-                                @Override
-                                public void run() {
-                                    pd.setProgress(status);
-                                    if(status == 100) {
-                                        pd.dismiss();
-                                    }
-                                }
-                            });
                     }
+
+                    // Replace Networks with the filtered array
+                    resultJson.put("Networks", filteredNetworks);
                 }
-            }).start();
-        pd.show();
-    }
+
+                // Step 3: Re-encrypt the JSON
+                String encryptedResult;
+                try {
+                    encryptedResult = AESCrypt.encrypt(config.PASSWORD, resultJson.toString());
+                } catch (Exception e) {
+                    throw new Exception("Failed to encrypt the result: " + e.getMessage());
+                }
+
+                // Step 4: Save the encrypted JSON
+                File file = new File(getFilesDir(), "Config.json");
+                try (OutputStream out = new FileOutputStream(file)) {
+                    out.write(encryptedResult.getBytes());
+                }
+
+                // Success: Dismiss dialog and restart app
+                runOnUiThread(() -> {
+                    pd.dismiss();
+                    Toast.makeText(MainActivity.this, "Update successful!", Toast.LENGTH_SHORT).show();
+                    restart_app();
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.e("letUpdate", "Error occurred: " + e.getMessage());
+
+                runOnUiThread(() -> {
+                    pd.dismiss();
+                    Toast.makeText(MainActivity.this, "An error occurred: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                });
+            }
+        }
+    }).start();
+}
 
     private void newUpdateDialog(final String result) throws JSONException, GeneralSecurityException{
         String json_data = AESCrypt.decrypt(config.PASSWORD, result);
@@ -3316,7 +3349,7 @@ dialog.show();
 
     public void loadAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
-        InterstitialAd.load(this, "ca-app-pub-2460896719835035/4355104364", adRequest,new InterstitialAdLoadCallback() {
+        InterstitialAd.load(this, "ca-app-pub-8221353512185856/5759680489", adRequest,new InterstitialAdLoadCallback() {
                 @Override
                 public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
                     MainActivity.this.interstitialAd = interstitialAd;
@@ -3574,7 +3607,7 @@ dialog.show();
         if (rewardedAd == null) {
             MainActivity.this.isLoading = true;
             AdRequest adRequest = new AdRequest.Builder().build();
-            RewardedAd.load(this,"ca-app-pub-2460896719835035/3285565279", adRequest,new RewardedAdLoadCallback() {
+            RewardedAd.load(this,"ca-app-pub-8221353512185856/5750161953", adRequest,new RewardedAdLoadCallback() {
                     @Override
                     public void onAdFailedToLoad( LoadAdError loadAdError) {
                         rewardedAd = null;

@@ -1,0 +1,20 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/SMK ULTRA TUN/app/src/main/java/com/tekidoer/sockshttp/MainActivity.java",
+      "selection": {
+        "end": {
+          "column": 125,
+          "index": 106601,
+          "line": 2130
+        },
+        "start": {
+          "column": 125,
+          "index": 106601,
+          "line": 2130
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/SMK ULTRA TUN/app/src/main/java/com/tekidoer/sockshttp/MainActivity.java"
+}

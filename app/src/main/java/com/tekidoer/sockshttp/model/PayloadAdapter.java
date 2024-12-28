@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import java.io.InputStream;
 import java.util.ArrayList;
 import android.widget.LinearLayout;
@@ -59,10 +59,7 @@ public class PayloadAdapter extends BaseAdapter {
         // Apply bold and serif formatting to the server name and info
         name.setText(Html.fromHtml("<b><font face='serif'>" + arrayList.get(position).getServerName() + "</font></b>"));
         info.setText(Html.fromHtml("<b><font face='serif'>" + arrayList.get(position).getServerInfo() + "</font></b>"));
-
-        // Apply the rounded background
-        mainCardz.setBackgroundResource(R.drawable.green_round);
-
+        
         // Add animation
         mainCardz.startAnimation(AnimationUtils.loadAnimation(context, R.anim.grow));
 

@@ -27,7 +27,7 @@ import android.net.NetworkInfo;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.content.Context;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 
 /**
  * By Jay Flores

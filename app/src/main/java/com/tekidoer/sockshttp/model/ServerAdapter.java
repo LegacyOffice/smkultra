@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import java.io.InputStream;
 import java.util.ArrayList;
 import androidx.cardview.widget.CardView;
@@ -64,7 +64,6 @@ public View getView(final int position, View convertView, ViewGroup parent) {
     ping = convertView.findViewById(R.id.pinglatency);
     im = convertView.findViewById(R.id.itemImage);
         
-    mainCardz.setBackgroundResource(R.drawable.green_round);    
     
     // Apply bold and serif formatting for the server name and info
     name.setText(Html.fromHtml("<b><font face='serif'>" + arrayList.get(position).getServerName() + "</font></b>"));

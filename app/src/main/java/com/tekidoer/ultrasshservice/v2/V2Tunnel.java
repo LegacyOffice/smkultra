@@ -12,7 +12,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.util.Log;
 import android.widget.TextView;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import com.tekidoer.ultrasshservice.config.Settings;
 import com.tekidoer.ultrasshservice.tunnel.TunnelManagerThread;
 import com.tekidoer.ultrasshservice.v2.V2Configs;

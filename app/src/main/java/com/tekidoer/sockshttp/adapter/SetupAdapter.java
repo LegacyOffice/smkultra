@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 
 public class SetupAdapter extends ArrayAdapter<String> {
 
@@ -35,7 +35,6 @@ public class SetupAdapter extends ArrayAdapter<String> {
     // Common method to inflate and populate views
     private View view(int position, View convertView, ViewGroup parent) {
         View v = LayoutInflater.from(getContext()).inflate(R.layout.custom_setup, parent, false);
-        v.setBackgroundResource(R.drawable.green_round);
 
         TextView tv = v.findViewById(R.id.customName);
         TextView extra = v.findViewById(R.id.customExtra);

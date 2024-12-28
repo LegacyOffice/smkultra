@@ -20,7 +20,7 @@ import android.os.IBinder;
 import androidx.annotation.RequiresApi;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.util.Log;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import com.tekidoer.ultrasshservice.config.Settings;
 import com.tekidoer.ultrasshservice.logger.ConnectionStatus;
 import com.tekidoer.ultrasshservice.logger.SkStatus;

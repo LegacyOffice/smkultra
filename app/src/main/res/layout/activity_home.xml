@@ -18,6 +18,7 @@
                  android:layout_height="fill_parent"
                  android:layout_width="match_parent"
                  android:gravity="top|center"
+                app:cardBackgroundColor="#FFECF0F3"
                  android:padding="5dp"
                  android:orientation="vertical"
                  android:id="@+id/activity_mainLinearLayout">
@@ -25,7 +26,6 @@
                 <androidx.cardview.widget.CardView
                      android:layout_height="wrap_content"
                      android:layout_width="match_parent"
-                     android:background="@drawable/green_round"
                      android:orientation="vertical"
                      android:paddingLeft="2dp"
                      android:layout_marginRight="5dp"
@@ -36,7 +36,6 @@
                     <LinearLayout
                          android:layout_height="wrap_content"
                          android:layout_width="match_parent"
-                         android:background="@drawable/green_round"
                          android:padding="5dp"
                          android:orientation="vertical">
 
@@ -53,7 +52,7 @@
                             <LinearLayout
                                  android:layout_height="wrap_content"
                                  android:layout_width="match_parent"
-                                 android:gravity="center_vertical"
+                                 android:gravity="center"
                                  android:orientation="horizontal">
 
                                 <LinearLayout
@@ -70,8 +69,7 @@
                                          android:textSize="14sp"
                                          android:fontFamily="serif"
                                          android:layout_marginLeft="5dp"
-                                         android:text="Config Version :"
-                                         android:textStyle="bold" />
+                                         android:text=" Version : " />
 
                                     <TextView
                                          android:layout_height="wrap_content"
@@ -80,6 +78,7 @@
                                          android:textSize="14sp"
                                          android:paddingLeft="4dp"
                                          android:text="Text"
+                                         android:textStyle="bold"
                                          android:id="@+id/config_v" />
 
                                 </LinearLayout>
@@ -87,28 +86,15 @@
                                 <LinearLayout
                                      android:layout_height="wrap_content"
                                      android:layout_width="match_parent"
-                                     android:gravity="center_vertical"
+                                     android:gravity="center"
                                      android:orientation="horizontal"
                                      android:layout_weight="1.0">
 
-                                    <TextView
+                                    <ImageView
                                          android:layout_height="wrap_content"
                                          android:layout_width="wrap_content"
                                          android:textAppearance="?android:attr/textAppearanceSmall"
-                                         android:textSize="14sp"
-                                         android:fontFamily="serif"
-                                         android:layout_marginLeft="5dp"
-                                         android:text="Status :"
-                                         android:textStyle="bold" />
-
-                                    <TextView
-                                         android:layout_height="wrap_content"
-                                         android:layout_width="wrap_content"
-                                         android:textAppearance="?android:attr/textAppearanceSmall"
-                                         android:textSize="14sp"
-                                         android:paddingLeft="4dp"
-                                         android:textColor="#ff0808"
-                                         android:text="Disconnected"
+                                         android:src="@drawable/red_dot"
                                          android:id="@+id/connect_status" />
 
                                 </LinearLayout>
@@ -162,13 +148,46 @@
                             </LinearLayout>
 
                         </LinearLayout>
+                        
+                        <LinearLayout
+                            android:id="@+id/linear32"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="8dp"
+                            android:gravity="center_vertical">
 
-                        <androidx.appcompat.widget.AppCompatSpinner
-                             android:layout_height="55dp"
-                             android:layout_width="match_parent"
-                             android:background="@drawable/green_round"
-                             android:layout_marginTop="5dp"
-                             android:id="@+id/serverSpinner" />
+                            <!-- Spinner for Server Selection -->
+                            <androidx.appcompat.widget.AppCompatSpinner
+                                android:id="@+id/serverSpinner"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:spinnerMode="dropdown"
+                                android:padding="8dp"
+                                android:background="@drawable/spinner_background"
+                                android:contentDescription="Dropdown menu for server selection" />
+
+                            <!-- Vertical Separator -->
+                            <View
+                                android:id="@+id/separator"
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="#2C2C2C"
+                                android:layout_marginHorizontal="8dp" />
+
+                            <!-- Spinner for Network Selection -->
+                            <androidx.appcompat.widget.AppCompatSpinner
+                                android:id="@+id/payloadSpinner"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:spinnerMode="dropdown"
+                                android:padding="8dp"
+                                android:background="@drawable/spinner_background"
+                                android:contentDescription="Dropdown menu for network selection" />
+                        </LinearLayout>
+
 
                         <androidx.cardview.widget.CardView
                              android:layout_height="20dp"
@@ -265,19 +284,11 @@
                             </LinearLayout>
 
                         </LinearLayout>
-
-                        <androidx.appcompat.widget.AppCompatSpinner
-                             android:layout_height="wrap_content"
-                             android:layout_width="match_parent"
-                             android:background="@drawable/green_round"
-                             android:layout_marginTop="5dp"
-                             android:id="@+id/payloadSpinner" />
-
+                        
                         <androidx.appcompat.widget.AppCompatSpinner
                              android:layout_height="wrap_content"
                              android:layout_width="match_parent"
                              android:visibility="gone"
-                             android:background="@drawable/green_round"
                              android:layout_marginTop="5dp"
                              android:id="@+id/setupSpinner" />
 
@@ -688,7 +699,7 @@
                              android:layout_height="fill_parent"
                              android:layout_width="50dp"
                              android:layout_marginEnd="5.0dip"
-                             app:srcCompat="@drawable/ytblue3"
+                             app:srcCompat="@drawable/telegram"
                              android:id="@+id/j9" />
 
                         <TextView
@@ -699,7 +710,7 @@
                              android:textColor="#1f5a7c"
                              android:id="@+id/td"
                              android:textStyle="bold"
-                             android:text="Support our ytb channel" />
+                             android:text="For Support Visit Us" />
 
                         <ImageView
                              android:layout_height="30.0dip"
@@ -722,7 +733,7 @@
                          android:layout_height="wrap_content"
                          android:layout_width="wrap_content"
                          app:adSize="BANNER"
-                         app:adUnitId="ca-app-pub-2460896719835035/8537891954"
+						app:adUnitId="ca-app-pub-8221353512185856/7184433051"
                          android:id="@+id/adBannerMainView" />
 
                 </LinearLayout>

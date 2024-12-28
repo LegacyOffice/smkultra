@@ -20,7 +20,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import com.tekidoer.ultrasshservice.config.PasswordCache;
 import com.tekidoer.ultrasshservice.config.Settings;
 import com.tekidoer.ultrasshservice.logger.ConnectionStatus;

@@ -20,7 +20,7 @@ import com.tekidoer.ultrasshservice.v2.V2Listener;
 import org.json.JSONObject;
 
 import java.util.Objects;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import libv2ray.Libv2ray;
 import libv2ray.V2RayPoint;
 import libv2ray.V2RayVPNServiceSupportsSet;

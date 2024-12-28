@@ -17,7 +17,7 @@ import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import android.os.Environment;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 
 public class FileUtils {
 	private static final String TAG = "FileUtils";

@@ -90,19 +90,19 @@
 
                 <data android:port="*"/>
 
-                <data android:pathPattern=".*.dev"/>
+                <data android:pathPattern=".*.sut"/>
 
-                <data android:pathPattern=".*..*.dev"/>
+                <data android:pathPattern=".*..*.sut"/>
 
-                <data android:pathPattern=".*..*..*.dev"/>
+                <data android:pathPattern=".*..*..*.sut"/>
 
-                <data android:pathPattern=".*..*..*..*.dev"/>
+                <data android:pathPattern=".*..*..*..*.sut"/>
 
-                <data android:pathPattern=".*..*..*..*..*.dev"/>
+                <data android:pathPattern=".*..*..*..*..*.sut"/>
 
-                <data android:pathPattern=".*..*..*..*..*..*.dev"/>
+                <data android:pathPattern=".*..*..*..*..*..*.sut"/>
 
-                <data android:pathPattern=".*..*..*..*..*..*..*.dev"/>
+                <data android:pathPattern=".*..*..*..*..*..*..*.sut"/>
 
             </intent-filter>
 
@@ -181,7 +181,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-2460896719835035~9607431049"/>
+            android:value="ca-app-pub-8221353512185856~9486226985"/>
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -208,5 +208,5 @@
 		</service>
 
     </application>
-
+  
 </manifest>

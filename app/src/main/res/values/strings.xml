@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
-<string name="app_name">DEMON VPN</string>
-<string name="app_description">DEMON VPN is an SSH TUNNEL client, designed to bypass local blocking and censorship on the network.</string>
+	<string name="app_name">SMK ULTRA TUN</string>
+	<string name="app_description">SMK ULTRA TUN is an SSH TUNNEL client, designed to bypass local blocking and censorship on the network.</string>
 <string name="attention">Attention</string>
 <string name="cancel">Cancel</string>
 <string name="ok">Ok</string>
 <string name="exit">Exit</string>
 <string name="error_request_permission">You need access to External Storage</string>
-<string name="exported_file_info">"Exported file may not be compatible with older versions of DEMON VPN if any of the 'FILE SECURITY' setting is checked."</string>
+	<string name="exported_file_info">"Exported file may not be compatible with older versions of SMK ULTRA TUN if any of the 'FILE SECURITY' setting is checked."</string>
 	<string name="connected">Connected</string>
     <string name="servicestop">Stop Secure</string>
     <string name="authenticating">Authenticating</string>

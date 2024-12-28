@@ -15,7 +15,7 @@ import androidx.preference.PreferenceManager;
 import androidx.preference.CheckBoxPreference;
 import android.content.Intent;
 import com.tekidoer.sockshttp.tekidoer_apps;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import androidx.preference.ListPreference;
 import android.content.Context;
 import androidx.appcompat.app.AppCompatDelegate;

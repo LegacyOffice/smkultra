@@ -4,7 +4,7 @@ import android.app.*;
 import android.content.*;
 import android.view.*;
 import android.widget.*;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import static android.content.DialogInterface.BUTTON_POSITIVE;
 
 public class PayloadGeneratorDialog {

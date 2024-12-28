@@ -12,7 +12,7 @@ import static android.content.pm.PackageManager.GET_META_DATA;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import com.tekidoer.sockshttp.util.Utils;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import android.widget.Toast;
@@ -22,7 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-        if (!(((String) getPackageManager().getApplicationLabel(getApplicationInfo())).equals("DEMON VPN") && getPackageName().equals("com.demontunnel.project"))) {
+        if (!(((String) getPackageManager().getApplicationLabel(getApplicationInfo())).equals("SMK ULTRA TUN") && getPackageName().equals("com.smkultratun.pro"))) {
             AlertDialog.Builder builder = new AlertDialog.Builder(BaseActivity.this);
             builder.setTitle("OPPS APP MODIFIED");
             builder.setMessage("Please install the original application version")
@@ -47,7 +47,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 	
     protected void tekidoer_sign_check(Context cont) {
         if (!(getSign().equals(Utils.my_sign) || getSign().equals(Utils.ps_sign))) {
-            //Toast.makeText(cont, ""+getSign(),0).show();
             finish();
             Utils.exitAll(BaseActivity.this);
         }

@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Handler;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.View;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import android.text.Html;
 import android.text.format.DateFormat;
 import com.tekidoer.ultrasshservice.config.Settings;

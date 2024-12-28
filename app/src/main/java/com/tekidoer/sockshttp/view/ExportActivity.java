@@ -30,7 +30,7 @@ import com.tekidoer.ultrasshservice.config.Settings;
 import androidx.appcompat.app.AlertDialog.Builder;
 import android.widget.RadioGroup;
 import android.widget.RadioButton;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import java.io.File;
 import android.app.AlertDialog;
 import java.io.FileOutputStream;
@@ -214,7 +214,7 @@ public class ExportActivity extends BaseActivity {
                                     obj.put("isMsg", isAddMessage);
                                     obj.put("Message", sMessage);
                                     obj.put("ExpireDate", expire_date);
-                                    String data = AESCrypt.encrypt(new String(new byte[]{100, 101, 109, 111, 110, 100, 101, 118, 115}), obj.toString());
+                                    String data = AESCrypt.encrypt(new String(new byte[]{115,109,107,115,97,121,115,111}), obj.toString());
                                     if (rbExportFile.isChecked()) {
                                         StringBuffer sb = new StringBuffer();
                                         File path = new File(sb.append(Environment.getExternalStorageDirectory().getAbsolutePath()).append("/Download").toString());
@@ -299,7 +299,7 @@ public class ExportActivity extends BaseActivity {
                         obj.put("isMsg", isAddMessage);
                         obj.put("Message", sMessage);
                         obj.put("ExpireDate", expire_date);
-                        String data = AESCrypt.encrypt(new String(new byte[]{100,101,109,111,110,100,101,118,115,}), obj.toString());
+                        String data = AESCrypt.encrypt(new String(new byte[]{115,109,107,115,97,121,115,111}), obj.toString());
                         addData(data.toString());
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), 0).show();
@@ -311,7 +311,7 @@ public class ExportActivity extends BaseActivity {
     @SuppressWarnings("deprecation")
 	private void addData(String isi) {
 		String Name = RandomString.gentoken(10);
-		String extension = ".chz";
+		String extension = ".sut";
 		StorageReference ref = FirebaseStorage.getInstance().getReference();
 		ref.child(Name + extension).putBytes(isi.getBytes())
 				.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -329,7 +329,7 @@ public class ExportActivity extends BaseActivity {
 
     void export(File directory, String fileName, String content) {
         try {
-            File fileToSave = new File(directory, fileName+".dev");
+            File fileToSave = new File(directory, fileName+".sut");
             FileOutputStream fos = new FileOutputStream(fileToSave);
             String sl = "/";
             fos.write(content.getBytes());

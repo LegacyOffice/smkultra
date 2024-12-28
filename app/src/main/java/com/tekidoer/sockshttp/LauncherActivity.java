@@ -3,7 +3,7 @@ package com.tekidoer.sockshttp;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import com.tekidoer.sockshttp.activities.BaseActivity;
 import android.os.Handler;
 import android.os.Looper;

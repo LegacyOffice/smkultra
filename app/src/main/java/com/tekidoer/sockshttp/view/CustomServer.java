@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
-import com.demontunnel.project.R;
+import com.smkultratun.pro.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.widget.CheckBox;
