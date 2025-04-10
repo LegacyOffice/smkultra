@@ -599,17 +599,6 @@
                         <Button
                              android:layout_height="wrap_content"
                              android:layout_width="match_parent"
-                             android:visibility="gone"
-                             android:background="@drawable/button_rounded"
-                             android:backgroundTint="?colorPrimary"
-                             android:textColor="#ffffff"
-                             android:layout_marginTop="10dp"
-                             android:text="STOP"
-                             android:id="@+id/stoppertunnel" />
-
-                        <Button
-                             android:layout_height="wrap_content"
-                             android:layout_width="match_parent"
                              android:background="@drawable/button_rounded"
                              android:backgroundTint="?colorPrimary"
                              android:textColor="#ffffff"

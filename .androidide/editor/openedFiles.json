@@ -5,13 +5,28 @@
       "selection": {
         "end": {
           "column": 0,
-          "index": 169586,
-          "line": 3631
+          "index": 134638,
+          "line": 2709
         },
         "start": {
           "column": 0,
-          "index": 0,
-          "line": 0
+          "index": 134638,
+          "line": 2709
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/SMK ULTRA TUN/app/src/main/res/layout/activity_home.xml",
+      "selection": {
+        "end": {
+          "column": 80,
+          "index": 31193,
+          "line": 596
+        },
+        "start": {
+          "column": 80,
+          "index": 31193,
+          "line": 596
         }
       }
     }

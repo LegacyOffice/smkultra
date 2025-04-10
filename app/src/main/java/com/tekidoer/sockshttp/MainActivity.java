@@ -14,6 +14,7 @@ import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.content.pm.PackageInfo;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.GradientDrawable.Orientation;
@@ -187,7 +188,6 @@ public class MainActivity extends BaseActivity implements  SkStatus.StateListene
     private Handler mHandler;
     private LinearLayout mainLayout;
     private Button starterButton;
-    private Button stopperButton;
     private AdView adsBannerView;
     private ConfigUtil config;
     FirebaseRemoteConfig firebaseRemoteConfig;
@@ -310,6 +310,7 @@ public class MainActivity extends BaseActivity implements  SkStatus.StateListene
         requestNotificationPermission();
         telegram();
         doLayout();
+        checkUpdate();
 
         mAppUpdateManager = AppUpdateManagerFactory.create(this);   mAppUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>(){
                 @Override
@@ -441,9 +442,7 @@ firebaseRemoteConfigGet();
         connectionStatus = (ImageView)findViewById(R.id.connect_status);
         mainLayout = (LinearLayout) findViewById(R.id.activity_mainLinearLayout);
         starterButton = (Button) findViewById(R.id.activity_starterButtonMain);
-        stopperButton = (Button) findViewById(R.id.stoppertunnel);
         starterButton.setOnClickListener(this);
-        stopperButton.setOnClickListener(this);
         doSaveData();
 
         CardView btn = (CardView) findViewById(R.id.tek);
@@ -1449,6 +1448,8 @@ dialog.show();
         String jSONArray2 = config.getNetworksArray().toString();
         String version = config.getVersion();
         String notes = config.getNote();
+        
+        
         sp.edit().putString("Version", version).apply();
         sp.edit().putString("ReleaseNotes", notes).apply();
         sp.edit().putString("Servers", jSONArray).apply();
@@ -1688,7 +1689,7 @@ dialog.show();
         try {
             JSONArray a=new JSONArray(sp.getString("Servers", "[]"));
             JSONArray b=new JSONArray(sp.getString("Networks", "[]"));
-            return new JSONObject(ja).put("Version",sp.getString("Version", "")).put("ReleaseNotes",sp.getString("ReleaseNotes", "")).put("Servers", a).put("Networks", b);
+            return new JSONObject(ja).put("Version",sp.getString("Version", "")).put("AppVersion",sp.getString("AppVersion", "")).put("fUpdate",sp.getString("fUpdate", "")).put("ReleaseNotes",sp.getString("ReleaseNotes", "")).put("Servers", a).put("Networks", b);
         } catch (JSONException e) {
             return null;
         }
@@ -1698,7 +1699,7 @@ dialog.show();
         try {
             //   uri = getData();
             //  String intentData = importer(uri);
-            //String cipter = AESCrypt.decrypt(ConfigUtil.PASSWORD, intentData);
+            //String cipter = AESCrypt.decrypt(c.PASSWORD, intentData);
             File file = new File(getFilesDir(), "Config.json");
             OutputStream out = new FileOutputStream(file);
             out.write(getJson().getBytes());
@@ -2685,27 +2686,142 @@ dialog.show();
     }
 
     public void setStarterButton(Button starterButton, Activity activity) {
-        String state = SkStatus.getLastState();
-        boolean isRunning = SkStatus.isTunnelActive();
-        if (starterButton != null) {
-            int resId;
-            if (SkStatus.SSH_INICIANDO.equals(state)) {
-                resId = R.string.stop;
-                serverSpinner.setEnabled(false);
-                payloadSpinner.setEnabled(false);
-                starterButton.setEnabled(false);
-            } else if (SkStatus.SSH_PARANDO.equals(state)) {
-                serverSpinner.setEnabled(true);
-                payloadSpinner.setEnabled(true);
-                resId = R.string.state_stopping;
-                starterButton.setEnabled(true);
-            } else {
-                resId = isRunning ? R.string.stop : R.string.start;
-                starterButton.setEnabled(true);
-            }
-            starterButton.setText(resId);
+    String state = SkStatus.getLastState();
+    boolean isRunning = SkStatus.isTunnelActive();
+    if (starterButton != null) {
+        int resId;
+        if (SkStatus.SSH_INICIANDO.equals(state)) {
+            resId = R.string.stop;
+            serverSpinner.setEnabled(false);
+            payloadSpinner.setEnabled(false);
+            starterButton.setEnabled(false);
+        } else if (SkStatus.SSH_PARANDO.equals(state)) {
+            serverSpinner.setEnabled(true);
+            payloadSpinner.setEnabled(true);
+            resId = R.string.state_stopping;
+            starterButton.setEnabled(true);
+        } else {
+            resId = isRunning ? R.string.stop : R.string.start;
+            starterButton.setEnabled(true);
         }
+        starterButton.setText(resId);
     }
+}
+
+    
+    private void checkUpdate() {
+    PackageManager manager = getPackageManager();
+    try {
+        PackageInfo info = manager.getPackageInfo(getPackageName(), 0);
+        String versionName = info.versionName != null ? info.versionName.trim() : ""; // Current app version
+        String latestVersion = sp.getString("AppVersion", ""); // Latest version from server
+        String mforce = sp.getString("fUpdate", "");
+
+        if (latestVersion == null) latestVersion = "";
+        if (mforce == null) mforce = "";
+
+        latestVersion = latestVersion.trim().replaceAll("[^0-9.]", "");
+        versionName = versionName.replaceAll("[^0-9.]", "");
+
+      
+        if (!latestVersion.isEmpty() && isVersionGreater(latestVersion, versionName)) {
+            if ("true".equalsIgnoreCase(mforce)) {
+                forceUpdate();
+            } else {
+                updateApp();
+            }
+        }
+
+    } catch (PackageManager.NameNotFoundException e) {
+        e.printStackTrace();
+        Log.e("UpdateCheck", "Error checking version.", e);
+    }
+}
+
+private boolean isVersionGreater(String latestVersion, String currentVersion) {
+    String[] latestParts = latestVersion.split("\\.");
+    String[] currentParts = currentVersion.split("\\.");
+
+    int length = Math.max(latestParts.length, currentParts.length);
+    
+    for (int i = 0; i < length; i++) {
+        int latest = (i < latestParts.length) ? Integer.parseInt(latestParts[i]) : 0;
+        int current = (i < currentParts.length) ? Integer.parseInt(currentParts[i]) : 0;
+
+        if (latest > current) return true; // Latest version is greater
+        if (latest < current) return false; // Current version is already newer
+    }
+    
+    return false; // Versions are equal
+}
+
+private void updateApp() {
+    AlertDialog.Builder d = new AlertDialog.Builder(this);
+    d.setTitle("New App Update Available");
+    d.setMessage("A new update is available. Please update to the latest version to enjoy new features.");
+
+    d.setPositiveButton("Website", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface _dialog, int _which) {
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://smk-xi.vercel.app"));
+            startActivity(i);
+        }
+    });
+
+    d.setNeutralButton("Telegram", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface _dialog, int _which) {
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/smk_ultra_tun"));
+            startActivity(i);
+        }
+    });
+
+    d.setNegativeButton("Cancel", null); // Allows users to dismiss the dialog
+
+    // Create and show the dialog (cancelable)
+    AlertDialog alertDialog = d.create();
+    alertDialog.setCancelable(true);
+    alertDialog.setCanceledOnTouchOutside(true);
+    alertDialog.show();
+}
+
+private void forceUpdate() {
+    AlertDialog.Builder d = new AlertDialog.Builder(this);
+    d.setTitle("New App Update Required");
+    d.setMessage("A new mandatory update is available. You must update to continue using the app.");
+
+    d.setPositiveButton("Website", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface _dialog, int _which) {
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://smk-xi.vercel.app"));
+            startActivity(i);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(0);
+            if (TunnelUtils.isActiveVpn(MainActivity.this)) {
+                Utils.exitAll(MainActivity.this);
+            }
+        }
+    });
+
+    d.setNeutralButton("Telegram", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface _dialog, int _which) {
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/smk_ultra_tun"));
+            startActivity(i);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(0);
+            if (TunnelUtils.isActiveVpn(MainActivity.this)) {
+                Utils.exitAll(MainActivity.this);
+            }
+        }
+    });
+
+    // Create dialog and make it non-dismissible
+    AlertDialog alertDialog = d.create();
+    alertDialog.setCancelable(false);
+    alertDialog.setCanceledOnTouchOutside(false); // Prevent dismissing by tapping outside
+    alertDialog.show();
+}
 
     @Override
     public void onPostCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
@@ -2722,30 +2838,30 @@ dialog.show();
     }
 
     @Override
-    public void onClick(View p1){
-        //  SharedPreferences prefs = mConfig.getPrefsPrivate();
-        switch (p1.getId()) {
-            case R.id.activity_starterButtonMain:
-                starterButton.setVisibility(View.GONE);
-                stopperButton.setVisibility(View.VISIBLE);
+public void onClick(View p1) {
+    switch (p1.getId()) {
+        case R.id.activity_starterButtonMain:
+            String buttonText = starterButton.getText().toString();
+
+            if (buttonText.equalsIgnoreCase("START")) {
+                starterButton.setText("STOP");
                 loadServerData();
                 doSaveData();
                 startOrStopTunnel(this);
-                break;
-            case R.id.stoppertunnel:
-                stopperButton.setVisibility(View.GONE);
-                starterButton.setVisibility(View.VISIBLE);
+            } else if (buttonText.equalsIgnoreCase("STOP")) {
+                starterButton.setText("START");
                 setStopperButton(this);
-                break;
+            }
+            break;
 
-            case R.id.btnAddTime:
-                loadRewardedAd();
-                startGame();
-                Toast.makeText(MainActivity.this, "Requesting Ad Please wait...", 0).show();
-                break;
-
-        }
+        case R.id.btnAddTime:
+            loadRewardedAd();
+            startGame();
+            Toast.makeText(MainActivity.this, "Requesting Ad Please wait...", Toast.LENGTH_SHORT).show();
+            break;
     }
+}
+
 
     private String render_bandwidth(double bw) {
         String postfix;
@@ -3169,7 +3285,7 @@ dialog.show();
 					if (!result.contains("Error on getting data")) {
 						String json_data = AESCrypt.decrypt(config.PASSWORD, result);
 						if (isNewVersion(json_data)) {
-                        // newUpdateDialog(result);
+                        
 							letUpdate(result);
 						} else {
 							if (!isOnCreate) {
@@ -3219,6 +3335,11 @@ dialog.show();
                 // Step 2: Parse JSON and filter the Networks array
                 JSONObject resultJson = new JSONObject(decryptedResult);
                 JSONArray networksArray = resultJson.optJSONArray("Networks");
+                String appVersion = resultJson.getString("AppVersion");
+                String force = resultJson.getString("fUpdate");
+                sp.edit().putString("AppVersion", appVersion).apply();
+                sp.edit().putString("fUpdate", force).apply();
+                   
 
                 if (networksArray != null) {
                     JSONArray filteredNetworks = new JSONArray();
